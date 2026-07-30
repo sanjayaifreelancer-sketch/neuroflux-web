@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-UTF8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroFlux | The Pulse of Neural Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            font-family: 'JetBrains Mono', monospace;
+            overflow: hidden;
+            color: white;
+        }
+
+        h1, h2, .orbitron { font-family: 'Orbitron', sans_serif; }
+
+        /* Cyberpunk Glitch Effect */
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+            animation: glitch 1s linear infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; transform: translate(0); }
+            25% { transform: translate(-2px, 2px); }
+            50% { text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff; transform: translate(2px, -2px); }
+            75% { transform: translate(-1px, -1px); }
+            100% { text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; transform: translate(0); }
+        }
+
+        /* Neon Pulse Border */
+        .neon-border {
+            border: 1px solid #00ffff;
+            box-shadow: 0 0 10px #00ffff, inset 0 0 5px #00ffff;
+            animation: neon-pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes neon-pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 10px #00ffff, inset 0 0 5px #00ffff; }
+            50% { opacity: 0.7; box-shadow: 0 0 20px #ff00ff, inset 0 0 10px #ff00ff; border-color: #ff00ff; }
+        }
+
+        /* Scanline Overlay */
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.25) 50%
+            ), linear-gradient(
+                90deg, 
+                rgba(255, 0, 0, 0.06), 
+                rgba(0, 255, 0, 0.02), 
+                rgba(0, 0, 255, 0.06)
+            );
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        #hero-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            z-index: 0;
+        }
+
+        .ui-layer {
+            position: relative;
+            z-index: 10;
+        }
+
+        .feed-card {
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(8px);
+            border-left: 4px solid #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+    <canvas id="hero-canvas"></canvas>
+
+    <div class="ui-layer min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <nav class="w-full p-6 border-b border-cyan-500/30 backdrop-blur-md bg-black/40 flex justify-between items-center">
+            <div class="text-2xl font-bold text-cyan-400 orbitron tracking-widr">NEURO<span class="text-magenta-500 text-pink-500">FLUX</span></div>
+            <div class="space-x-8 hidden md:flex uppercase text-sm tracking-tighter">
+                <a href="#" class="hover:text-cyan-400 transition">Live_Pulse</a>
+                <a href="#" class="hover:text-pink-500 transition">Neural_Archive</a>
+                <a href="#" class="hover:text-cyan-400 transition">The_Lab</a>
+            </div>
+            <div class="text-xs text-cyan-600 animate-pulse">STATUS: ONLINE [SYSTEM_ACTIVE]</div>
+        </nav>
+
+        <!-- Hero Section -->
+        <main class="flex-grow flex flex-col items-center justify-center text-center px-4">
+            <h1 class="glitch-text text-7xl md:text-9xl font-bold mb-4 tracking-tighter">NEUROFLUX</h1>
+            <div class="neon-border px-6 py-2 uppercase tracking-[0.3em] text-cyan-30_0 text-sm md:text-lg bg-black/50">
+                The Pulse of Neural Intelligence
+            </div>
+            <p class="mt-8 text-gray-400 max-w-xl text-sm md:text-base leading-relaxed">
+                Automated intelligence synthesis. Real-time neural updates every 5 hours. 
+                Powered by NVIDIA NIM and the future of edge computation.
+            </p>
+        </main>
+
+        <!-- Live Feed Overlay -->
+        <section class="p-10 w-full max-w-md">
+            <div class="feed-container flex flex-col space-y-4" id="news-feed">
+                <!-- News items will be injected here by JS -->
+            </div>
+        </progress>
+        <div class="pb-10 text-center opacity-30 text-[10px] uppercase tracking-widest">
+            Protocol: Neural_Sync v4.0 | Connection: SECURE
+        </div>
+    </div>
+
+    <script>
+        // --- THREE.JS 3D ENGINE ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        // Create Neural Particle Field
+        const particlesGeometry = new THREE.BufferGeometry();
+        const count = 4000;
+        const positions = new Float32Array(count * 3);
+        const colors = new Float32Array(count * 3);
+
+        for (let i = 0; i < count * 3; i++) {
+            positions[i] = (Math.random() - 0.5) * 15;
+            colors[i] = Math.random(); // Random color for variety
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.02,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+
+        camera.position.z = 5;
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.y += 0.001;
+            particles.rotation.x += 0.0005;
+            
+            // Pulse effect
+            const time = Date.now() * 0.001;
+            particles.material.size = 0.02 + Math.sin(time) * 0.005;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // --- NEWS FEED SIMULATOR ---
+        const headlines = [
+            "[SYNAPSE_ALERT] NVIDIA NIM achieves 40% latency reduction in LLM inference.",
+            "[NEURAL_UPDATE] New Transformer architecture pattern detected in open-source repos.",
+            "[DATA_FLOW] Massive influx of training data found in decentralized datasets.",
+            "[CORE_LOG] Zero-shot capabilities expanding across multi-modal models.",
+            "[EDGE_TECH] 5-hour automated sync completed. System stable.",
+            "[SYSTEM_INCIDENT] Latency spike detected in cluster Node-7. Resolving..."
+        ];
+
+        const feedContainer = document.getElementById('news-feed');
+
+        function addNewsItem() {
+            const item = document.createElement('div');
+            const timestamp = new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-string' });
+            const text = headlines[Math.floor(Math.random() * headlines.length)];
+            
+            item.className = "feed-card p-4 animate-pulse shadow-lg transition-all duration-500";
+            item.innerHTML = `
+                <div class="text-[10px] text-cyan-500 font-bold mb-1 uppercase tracking-widest">${timestamp}</div>
+                <div class="text-sm md:text-base text-white leading-snug">${text}</div>
+            `;
+
+            feedContainer.prepend(item);
+
+            if (feedContainer.children.length > 5) {
+                feedContainer.removeChild(feedContainer.lastChild);
+            }
+        }
+
+        // Start simulation
+        setInterval(addNewsItem, 4000);
+        addNewsItem(); // Initial call
+    </script>
+</body>
+</html>
