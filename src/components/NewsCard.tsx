@@ -16,7 +16,6 @@ export default function NewsCard({ source, content, timestamp }: NewsProps) {
     >
       <div className="text-[10px] uppercase text-pink-500 font-mono mb-1">[{timestamp}] {source}</div>
       <p className="text-white text-sm md:text-base">{content}</p>
-    </cap>
     </motion.div>
   );
 }

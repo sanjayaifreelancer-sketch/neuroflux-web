@@ -1,6 +1,6 @@
 'use client';
-import React from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars, Float, Sphere } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -14,7 +14,7 @@ function ParticleSphere() {
     <points>
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={5000} array={points} itemSize={3} />
-      </bufferGeometry>
+      </buffer_geometry>
       <pointsMaterial size={0.02} color="#00ffff" transparent opacity={0.6} blending={THREE.AdditiveBlending} />
     </points>
   );
@@ -31,7 +31,7 @@ export default function NeuralCanvas() {
             <meshStandardMaterial color="#ff00ff" wireframe opacity={0.3} transparent />
           </Sphere>
         </Float>
-        <OrbitControls enableZoom={不存在_prop_here=false} autoRotate />
+        <OrbitControls enableZoom={false} autoRotate />
         <ParticleSphere />
       </Canvas>
     </div>
