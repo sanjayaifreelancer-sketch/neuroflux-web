@@ -1,6 +1,6 @@
 'use client';
-import NeuralCanvas from '@/components/NeuralCanvas';
-import NewsCard from '@/components/NewsCard';
+import NeuralCanvas from '../components/NeuralCanvas';
+import NewsCard from '../components/NewsCard';
 import { useEffect, useState } from 'react';
 
 export default function NeuroFlux() {
