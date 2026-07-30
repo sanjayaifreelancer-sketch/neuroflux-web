@@ -1,4 +1,8 @@
 [
-  {"id":"1","timestamp":"2026-07-30T12:00:00Z","source":"NVIDIA","content":"NeuroFlux is live and operational."},
-  {"id":"2","timestamp":"2026-07	0T12:05:00Z","source":"X-Pulse","content":"The intelligence network is active."}
+  {"id":"1","timestamp":"2026-07-30T10:00:00Z","source":"NVIDIA NIM","content":"[SYNAPSE_UPDATE] Neural inference engine achieves 40% latency reduction in real-time processing."},
+  {"id":"2","timestamp":"2026-07-30T10:30:00Z","source":"AI News","content":"[DATA_STREAM] New transformer architecture detected — open-source community reports 3x efficiency gain."},
+  {"id":"3","timestamp":"2026-07-30T11:00:00Z","source":"X Pulse","content":"[SIGNAL_CAPTURE] Major breakthrough in multimodal AI alignment published."},
+  {"id":"4","timestamp":"2026-07-30T11:30:00Z","source":"YouTube Transcript","content":"[VIDEO_NODE] Deep dive: The future of autonomous agent systems in production."},
+  {"id":"5","timestamp":"2026-07-30T12:00:00Z","source":"AI Magazine","content":"[PULSE_LOG] 5-hour sync cycle complete. Neural network fully operational."},
+  {"id":"6","timestamp":"2026-07-30T12:05:00Z","source":"NeuroFlux Engine","content":"[SYSTEM] Live feed active. Broadcasting to global network nodes."}
 ]
