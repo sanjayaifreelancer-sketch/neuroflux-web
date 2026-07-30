@@ -1,39 +1,41 @@
-name: NeuroFlux Pulse — 5-Hour Sync
+name: NeuroFlux Pulse — Hourly Sync
 on:
   schedule:
-    - cron: '0 */5 * * *'   # Every 5 hours
-  workflow_dispatch:         # Manual trigger
+    - cron: '0 * * * *'   # Every hour — never miss a beat
+  workflow_dispatch:       # Manual trigger anytime
   push:
     branches: [master]
 jobs:
   pulse:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: Checkout repo
+        uses: actions/checkout@v4
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Install Dependencies
-        run: |
-          pip install feedparser lxml requests python-dotenv
-
+      - name: Install deps
+        run: pip install feedparser lxml python-dotenv
       - name: Run Pulse Engine
-        env:
-          NVIDIA_API_KEY_1: ${{ secrets.NVIDIA_API_KEY_1 }}
-          NVIDIA_API_KEY_2: ${{ secrets.NVIDIA_API_KEY_2 }}
+        run: cd engine && python pulse.py
+      - name: Commit new articles
+        id: commit
         run: |
-          python engine/pulse.py
-
-      - name: Commit & Push Feed Update
-        run: |
-          git config user.name 'NeuroFlux Bot'
-          git config user.email 'pulse@neuroflux.app'
-          git add public/feed.json
-          git diff --quiet && git diff --staged --quiet || \
-            (git commit -m "⚡ Neural pulse update [$(date -u '+%Y-%m-%d %H:%M UTC')]" && \
-             git push)
+          git config user.name "NeuroFlux Bot"
+          git config user.email "bot@neuroflux.ai"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "status=clean" >> $GITHUB_OUTPUT
+            echo "✅ No new articles this cycle"
+          else
+            COUNT=$(python -c "import json; d=json.load(open('public/feed.json')); print(len(d))")
+            git commit -m "🧠 Pulse sync: ${COUNT} articles — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            echo "status=committed" >> $GITHUB_OUTPUT
+            echo "✅ Committed ${COUNT} articles"
+          fi
+      - name: Push to deploy
+        if: steps.commit.outputs.status == 'committed'
+        run: git push
