@@ -1,24 +1,39 @@
-name: NeuroFlux Pulse Update
+name: NeuroFlux Pulse — 5-Hour Sync
 on:
   schedule:
-    - cron: '0 */5 * * *'
-  workflow_dispatched:
+    - cron: '0 */5 * * *'   # Every 5 hours
+  workflow_dispatch:         # Manual trigger
+  push:
+    branches: [master]
 jobs:
-  update:
+  pulse:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Setup Python
         uses: actions/setup-python@v4
-        with: {python-version: '3.10'}
-      - name: Run Engine
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
         run: |
-          pip install requests python-dotenv
-          python engine/transformer.py
-      - name: Commit and Push
+          pip install feedparser lxml requests python-dotenv
+
+      - name: Run Pulse Engine
+        env:
+          NVIDIA_API_KEY_1: ${{ secrets.NVIDIA_API_KEY_1 }}
+          NVIDIA_API_KEY_2: ${{ secrets.NVIDIA_API_KEY_2 }}
+        run: |
+          python engine/pulse.py
+
+      - name: Commit & Push Feed Update
         run: |
           git config user.name 'NeuroFlux Bot'
-          git config user.email 'bot@neuroflux.ai'
+          git config user.email 'pulse@neuroflux.app'
           git add public/feed.json
-          git commit -m "Automated Pulse Update" || exit 0
-          git push
+          git diff --quiet && git diff --staged --quiet || \
+            (git commit -m "⚡ Neural pulse update [$(date -u '+%Y-%m-%d %H:%M UTC')]" && \
+             git push)
