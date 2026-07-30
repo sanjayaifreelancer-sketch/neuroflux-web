@@ -6,10 +6,10 @@ export default function NewsCard({ source, content, timestamp }: any) {
     <motion.div 
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      className="p-4 bg-black/60 border-l-4 border-cyan-500 backdrop-blur-md shadow-[0_0_15px_rgba(0,255,255,0.2)]"
+      className="p-4 bg-black/60 border-l-4 border-cyan-500 backdrop-blur-md"
     >
-      <div className="text-[10px] uppercase tracking-widest text-pink-500 mb-1 font-mono">[{new Date(timestamp).toLocaleTimeString()}] {source}</div>
-      <p className="text-sm md:text-base text-white leading-tight font-medium">{content}</p>
-    </motion.div>
+      <div className="text-[10px] uppercase text-pink-500 font-mono mb-1">[{timestamp}] {source}</div>
+      <p className="text-white">{content}</p>
+    </motion.scale>
   );
 }

@@ -1,34 +1,19 @@
 'use client';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
-import { useRef } from 'react';
-import * as THREE from 'three';
-
-function Particles({ count = 3000 }: { count?: number }) {
-  const points = useRef<THREE.Points>(null!);
-  const pos = new Float32Array(count * 3);
-  for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 15;
-
-  useFrame((state) => {
-    points.current.rotation.y += 0.001;
-    points.current.rotation.x += 0.0005;
-  });
-
-  return (
-    <points ref={points}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={count} array={pos} itemSize={3} />
-      </BufferGeometry>
-      <pointsMaterial size={0.02} color="#00ffff" transparent opacity={0.6} blending={THREE.AdditiveBlending} />
-    </points>
-  );
-}
+import React from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Stars, Float, Sphere } from '@react-three/d_rei';
 
 export default function NeuralCanvas() {
   return (
     <div className="fixed inset-0 -z-10 bg-[#050505]">
       <Canvas camera={{ position: [0, 0, 5] }}>
-        <Particles />
+        <color attach="background" args={['#050505']} />
+        <Stars radius={100} depth={50} count={5000} factor={4} fade speed={1} />
+        <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+          <Sphere args={[1, 64, 64]}>
+            <meshStandardMaterial color="#00ffff" wireframe opacity={0.3} transparent />
+          </Sphere>
+        </Float>
         <OrbitControls enableZoom={false} autoRotate />
       </Canvas>
     </div>
