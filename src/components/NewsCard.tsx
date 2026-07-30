@@ -1,13 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 
-interface NewsProps {
-  source: string;
-  content: string;
-  timestamp: string;
-}
-
-export default function NewsCard({ source, content, timestamp }: News_Props) {
+export default function NewsCard({ source, content, timestamp }: any) {
   return (
     <motion.div 
       initial={{ opacity: 0, x: -20 }}
