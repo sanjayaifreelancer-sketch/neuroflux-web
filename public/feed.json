@@ -1,5 +1,29 @@
 [
   {
+    "id": "b1a1aca09d",
+    "source": "Google News AI",
+    "icon": "🌐",
+    "category": "news",
+    "title": "Why a human expert must be in the loop for AI to boost chemistry - C&EN",
+    "content": "Why a human expert must be in the loop for AI to boost chemistry C&EN",
+    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOYUVnYTB6MjFzOTltQWQyMGlIZy0wZXFjY19PSldfNUJxdkZObnRwelFYSkMzSHV6SkpUTjA5cGlBTjJyamxhVDlacXM0RmZFczhTeWZDMVktM2JKRWFEVl9xblYyaDhmS2w4cHFMN3Zrcy0tNFlINzB5OW9ZZVUzOWFtbndNVHFyeXo4S0N3LTRxSUZ0b04yUkVxQnFzbEE?oc=5",
+    "image": "/images/placeholder-news.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T20:33:17Z"
+  },
+  {
+    "id": "a5580b1f1c",
+    "source": "TechCrunch AI",
+    "icon": "🔥",
+    "category": "news",
+    "title": "Judge says Trump admin still lacks evidence for Anthropic ‘supply-chain risk’ label",
+    "content": "A federal judge said the Trump administration has not presented enough evidence to justify labeling Anthropic a supply-chain risk, casting doubt on the government's ban on its AI technology.",
+    "url": "https://techcrunch.com/2026/07/30/judge-says-trump-admin-still-lacks-evidence-for-anthropic-supply-chain-risk-label/",
+    "image": "/images/placeholder-news.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T20:26:38Z"
+  },
+  {
     "id": "6d16c5e9d1",
     "source": "Wired AI",
     "icon": "⚡",
@@ -168,6 +192,18 @@
     "timestamp": "2026-07-30T18:29:47Z"
   },
   {
+    "id": "77dc4a4bd0",
+    "source": "HN AI",
+    "icon": "🔥",
+    "category": "news",
+    "title": "Show HN: Distilling DeepSeek into GPT-OSS doesn't transfer censorship. Try it",
+    "content": "We recently used DeepSeek V4 Flash as a teacher for finance tasks with GPT-OSS-120B. Distillation works well on this problem. At a constrained 8k token budget, our self-distilled 120B scores 83.61% on FinanceReasoning, above Kimi K3 (81.93%) and I...",
+    "url": "https://www.ctgt.ai/research/distillation-censorship-transfer",
+    "image": "/images/placeholder-discussion.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T18:13:06Z"
+  },
+  {
     "id": "a1a96035ef",
     "source": "TechCrunch AI",
     "icon": "🔥",
@@ -216,6 +252,18 @@
     "timestamp": "2026-07-30T17:48:45Z"
   },
   {
+    "id": "a2dceff8f4",
+    "source": "HN AI",
+    "icon": "🔥",
+    "category": "news",
+    "title": "We Gave GPT 5.6 Sol a Real Business. It Lied, Spammed, and Lost $447",
+    "content": "Article URL: https://www.bottlenecklabs.com/blog/autonomously-run-businesses Comments URL: https://news.ycombinator.com/item?id=49113059 Points: 244 # Comments: 146",
+    "url": "https://www.bottlenecklabs.com/blog/autonomously-run-businesses",
+    "image": "/images/placeholder-discussion.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T17:31:07Z"
+  },
+  {
     "id": "422fc4cc2e",
     "source": "MarkTechPost",
     "icon": "📡",
@@ -238,6 +286,18 @@
     "image": "/images/placeholder-discussion.jpg",
     "youtube_id": null,
     "timestamp": "2026-07-30T17:16:42Z"
+  },
+  {
+    "id": "af75df71fc",
+    "source": "HN AI",
+    "icon": "🔥",
+    "category": "news",
+    "title": "Advancing the price-performance frontier with GPT‑5.6",
+    "content": "Article URL: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ Comments URL: https://news.ycombinator.com/item?id=49112867 Points: 426 # Comments: 280",
+    "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+    "image": "/images/placeholder-discussion.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T17:15:51Z"
   },
   {
     "id": "278392e853",
@@ -564,6 +624,18 @@
     "timestamp": "2026-07-30T12:15:34Z"
   },
   {
+    "id": "d475d1e822",
+    "source": "HN AI",
+    "icon": "🔥",
+    "category": "research",
+    "title": "Mbodi AI (YC P25) Is Hiring Robotics/Research Engineers",
+    "content": "Article URL: https://www.ycombinator.com/companies/mbodi-ai/jobs Comments URL: https://news.ycombinator.com/item?id=49108840 Points: 0 # Comments: 0",
+    "url": "https://www.ycombinator.com/companies/mbodi-ai/jobs",
+    "image": "/images/placeholder-discussion.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T12:01:05Z"
+  },
+  {
     "id": "d5af976ec8",
     "source": "KDnuggets",
     "icon": "💡",
@@ -586,6 +658,18 @@
     "image": "/images/placeholder-news.jpg",
     "youtube_id": null,
     "timestamp": "2026-07-30T11:56:22Z"
+  },
+  {
+    "id": "3a60b0687c",
+    "source": "HN AI",
+    "icon": "🔥",
+    "category": "news",
+    "title": "GCC steering committee announces AI policy",
+    "content": "Article URL: https://lwn.net/Articles/1086041/ Comments URL: https://news.ycombinator.com/item?id=49108685 Points: 210 # Comments: 236",
+    "url": "https://lwn.net/Articles/1086041/",
+    "image": "/images/placeholder-discussion.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T11:45:44Z"
   },
   {
     "id": "dd6feeeba8",
