@@ -1,5 +1,101 @@
 [
   {
+    "id": "dd6feeeba8",
+    "source": "AI News",
+    "icon": "📰",
+    "category": "news",
+    "title": "Zuckerberg details Meta’s personal AI superintelligence strategy",
+    "content": "Mark Zuckerberg has published a WSJ op-ed that argues superintelligence must reach individuals, not just a handful of institutions. The Meta chief published the piece as a statement of company philosophy rather than a product announcement. It cont...",
+    "url": "https://www.artificialintelligence-news.com/news/zuckerberg-details-meta-personal-ai-superintelligence-strategy/",
+    "image": "https://www.artificialintelligence-news.com/wp-content/uploads/2025/08/ai-expo-banner-2025.png",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T11:12:11Z"
+  },
+  {
+    "id": "e34851b6fd",
+    "source": "AI News",
+    "icon": "📰",
+    "category": "news",
+    "title": "How AI is Changing Linux VPS Security for Businesses",
+    "content": "Cybersecurity wasn’t really something small and mid-sized businesses worried about too much a few years back. That’s changed fast. Once your customer data, your apps, your internal tools all end up online, protecting the server behind them stops b...",
+    "url": "https://www.artificialintelligence-news.com/news/how-ai-is-changing-linux-vps-security-for-businesses/",
+    "image": "/images/placeholder-news.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T10:41:02Z"
+  },
+  {
+    "id": "11fdb9faa0",
+    "source": "Reddit AI",
+    "icon": "💬",
+    "category": "videos",
+    "title": "\"Humannequins\" - A new study on synthetic choreographies",
+    "content": "A couple of brief example of what Uisato Studio's \"Music Video Pro\" mode is capable of: turning a track and a concept, into a whole audiovisual world + audioreactive performance. MJ v8.1 for image references, Uisato Studio for video. I've uploaded...",
+    "url": "https://www.reddit.com/r/artificial/comments/1vapz5h/humannequins_a_new_study_on_synthetic/",
+    "image": "https://external-preview.redd.it/cHQ3c3ljbGFpY2doMZ2y2mkRajIXUrun_5BRidu7qCPQu0cx8XIWH8yc8BAt.png?width=640&crop=smart&auto=webp&s=0cf3bb198241670754e946f71019a734cd608068",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T10:38:28Z"
+  },
+  {
+    "id": "d0f1e785ea",
+    "source": "Wired AI",
+    "icon": "⚡",
+    "category": "news",
+    "title": "OpenAI’s Hacking Debacle Was a Human Mistake",
+    "content": "If the generative AI giant had followed well-known security best practices, it’s likely that its AI agent would never have escaped to the open internet and hacked multiple companies.",
+    "url": "https://www.wired.com/story/openais-hacking-debacle-was-a-human-mistake/",
+    "image": "https://media.wired.com/photos/6a6a94581485bb334813c567/master/pass/Security_OpenAIsHackingDebacleWasaHumanMistake_v1-ezgif.com-video-to-gif-converter.gif",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T10:30:00Z"
+  },
+  {
+    "id": "5919c23ba9",
+    "source": "Reddit AI",
+    "icon": "💬",
+    "category": "news",
+    "title": "Export your chats between AIs. Every new one always knows you",
+    "content": "I got tired of telling ChatGPT who I am, then switching to Claude and starting from zero. Then Gemini. Your history lives on three different companies' servers and none of them talk to each other. So I built MEMMEM (Windows for now, Mac/Linux plan...",
+    "url": "https://www.reddit.com/r/artificial/comments/1vapro2/export_your_chats_between_ais_every_new_one/",
+    "image": "/images/placeholder-discussion.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T10:27:07Z"
+  },
+  {
+    "id": "6e002f4cdb",
+    "source": "Wired AI",
+    "icon": "⚡",
+    "category": "news",
+    "title": "LinkedIn Won’t Be Expanding Its Data Centers in the Next Year",
+    "content": "Despite the ongoing AI boom, LinkedIn is holding the line on compute spending. Instead, it’s challenging engineers to make every GPU count.",
+    "url": "https://www.wired.com/story/how-linkedin-is-keeping-its-compute-capacity-flat/",
+    "image": "https://media.wired.com/photos/6a55499d3c32337c08be385d/master/pass/How-LinkedIn-Is-Keeping-Compute-Capacity-Flat-Business-83077321.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T10:15:00Z"
+  },
+  {
+    "id": "56df3507c0",
+    "source": "MarkTechPost",
+    "icon": "📡",
+    "category": "news",
+    "title": "Tencent Open-Sources AngelSpec: A Unified Training Framework for MTP and Block-Parallel Speculative Decoding on Hy3 Models",
+    "content": "Tencent has released AngelSpec, an open-source, torch-native training framework for speculative-decoding draft models. The release covers both autoregressive multi-token prediction (MTP) and the block-parallel DFlash family. Most speculative-decod...",
+    "url": "https://www.marktechpost.com/2026/07/30/tencent-open-sources-angelspec-a-unified-training-framework-for-mtp-and-block-parallel-speculative-decoding-on-hy3-models/",
+    "image": "/images/placeholder-news.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T10:08:18Z"
+  },
+  {
+    "id": "f5115967be",
+    "source": "Reddit AI",
+    "icon": "💬",
+    "category": "news",
+    "title": "How would answer these?",
+    "content": "What is a claim? What is evidence? What is a constraint? What is a proof? What is an assumption? What is a contradiction? What is trust? submitted by /u/MuhammadMujtaba21 [link] [comments]",
+    "url": "https://www.reddit.com/r/artificial/comments/1vapdr5/how_would_answer_these/",
+    "image": "/images/placeholder-discussion.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T10:06:52Z"
+  },
+  {
     "id": "358e59d663",
     "source": "Wired AI",
     "icon": "⚡",
@@ -22,6 +118,18 @@
     "image": "/images/placeholder-news.jpg",
     "youtube_id": null,
     "timestamp": "2026-07-30T09:21:28Z"
+  },
+  {
+    "id": "d15c93d585",
+    "source": "Google News AI",
+    "icon": "🌐",
+    "category": "news",
+    "title": "Eurobites: Arm enjoys AI boost, admits smartphone royalties hitch - Light Reading",
+    "content": "Eurobites: Arm enjoys AI boost, admits smartphone royalties hitch Light Reading",
+    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQUE0ZzgyOXRaS2xlQmc5U1RGOXJwbHlJQmRIUXBYZlA2ei1GWnQ3WXg5VnNSTTVRWDRwYzFTUTBTTkVDZDVOTlFzb0NYbzRrLTlUYldRRHhMMXk5V0tlaFZwNTM4WXMtaE5OT19SRnZobEtlYWxwSHJldGYxb2wtcWdlTnBHVFpqX01GZzNpeGQ4OFRrZnVOQ1lybE8wNVlLcGNiQUFuQ056b0E5X0k4aGl3?oc=5",
+    "image": "/images/placeholder-news.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T09:05:04Z"
   },
   {
     "id": "f2795d43a5",
@@ -58,6 +166,18 @@
     "image": "/images/placeholder-news.jpg",
     "youtube_id": null,
     "timestamp": "2026-07-30T07:00:00Z"
+  },
+  {
+    "id": "7e61d377a2",
+    "source": "Google News AI",
+    "icon": "🌐",
+    "category": "news",
+    "title": "Google Names Amina Al Sherif Field CTO for AI & Defense - GovCon Wire",
+    "content": "Google Names Amina Al Sherif Field CTO for AI & Defense GovCon Wire",
+    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNU0hOR1JVRzRSMnJjT0doYVVMbUlrVTVPWWpZSnBiZFhYN1dNckpiOGx5U3FHT2hCemZ3TktkbTJZOHNYeXF3SU9TTjZzOUVZWkdudndvc08yWWpSSHJydUkwYk5faGxuS0xzWWcyWm96aDVPalJaYVhtX3FjMF92Uzd1WWF4dw?oc=5",
+    "image": "/images/placeholder-news.jpg",
+    "youtube_id": null,
+    "timestamp": "2026-07-30T06:45:44Z"
   },
   {
     "id": "4ebdccc0f5",
