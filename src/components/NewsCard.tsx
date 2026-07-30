@@ -10,6 +10,6 @@ export default function NewsCard({ source, content, timestamp }: any) {
     >
       <div className="text-[10px] uppercase text-pink-500 font-mono mb-1">[{timestamp}] {source}</div>
       <p className="text-white">{content}</p>
-    </motion.scale>
+    </motion.div>
   );
 }
