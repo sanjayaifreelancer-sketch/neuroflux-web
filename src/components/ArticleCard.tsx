@@ -33,15 +33,23 @@ export default function ArticleCard({ article }: { article: ArticleCardProps }) 
               <div className="text-[10px] text-cyan-400 uppercase tracking-wider">Video</div>
             </div>
           </div>
-        ) : article.image && !article.image.includes('placeholder') ? (
+        ) : article.image ? (
           <img
             src={article.image}
             alt={article.title}
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none';
-              (e.target as HTMLImageElement).parentElement!.classList.add('flex', 'items-center', 'justify-center');
-              (e.target as HTMLImageElement).parentElement!.innerHTML = '<div class="text-3xl opacity-30">📄</div>';
+              const el = e.target as HTMLImageElement;
+              // YouTube thumbnails: fall back to hqdefault if maxresdefault missing
+              if (article.youtube_id && el.src.includes('maxresdefault')) {
+                el.src = `https://img.youtube.com/vi/${article.youtube_id}/hqdefault.jpg`;
+                return;
+              }
+              el.style.display = 'none';
+              const parent = el.parentElement!;
+              parent.classList.add('flex', 'items-center', 'justify-center');
+              parent.innerHTML = '<div class="text-3xl opacity-30">' + (article.icon || '📄') + '</div>';
             }}
           />
         ) : (

@@ -79,9 +79,21 @@ export default function ArticlePage() {
           </h1>
 
           {/* Image */}
-          {article.image && !article.image.includes('placeholder') && (
+          {article.image && (
             <div className="mb-8 rounded-lg overflow-hidden border border-gray-800">
-              <img src={article.image} alt={article.title} className="w-full h-auto max-h-96 object-cover" />
+              <img
+                src={article.image}
+                alt={article.title}
+                className="w-full h-auto max-h-96 object-cover"
+                onError={(e) => {
+                  const el = e.target as HTMLImageElement;
+                  if (article.youtube_id && el.src.includes('maxresdefault')) {
+                    el.src = `https://img.youtube.com/vi/${article.youtube_id}/hqdefault.jpg`;
+                    return;
+                  }
+                  el.style.display = 'none';
+                }}
+              />
             </div>
           )}
 
