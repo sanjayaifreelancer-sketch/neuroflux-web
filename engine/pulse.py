@@ -37,14 +37,18 @@ SOURCES = [
     {"name": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "category": "news", "icon": "🔥"},
     {"name": "VentureBeat AI", "url": "https://venturebeat.com/category/ai/feed/", "category": "news", "icon": "📊"},
     {"name": "Wired AI", "url": "https://www.wired.com/feed/tag/ai/latest/rss", "category": "news", "icon": "⚡"},
+    {"name": "The Verge AI", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "category": "news", "icon": "📰"},
+    {"name": "Engadget", "url": "https://www.engadget.com/rss.xml", "category": "news", "icon": "📱", "ai_filter": True},
+    {"name": "NVIDIA Blog", "url": "https://blogs.nvidia.com/feed/", "category": "research", "icon": "🟢"},
     {"name": "MarkTechPost", "url": "https://www.marktechpost.com/feed/", "category": "news", "icon": "📡"},
     {"name": "Analytics Vidhya", "url": "https://www.analyticsvidhya.com/blog/feed/", "category": "news", "icon": "📘"},
     {"name": "KDnuggets", "url": "https://www.kdnuggets.com/feed", "category": "news", "icon": "💡"},
     {"name": "Synced", "url": "https://syncedreview.com/feed/", "category": "research", "icon": "🔬"},
-    {"name": "Google News AI", "url": "https://news.google.com/rss/search?q=artificial+intelligence+AI+machine+learning&hl=en-US&gl=US&ceid=US:en", "category": "news", "icon": "🌐"},
     {"name": "ArXiv", "url": "https://rss.arxiv.org/rss/cs.AI", "category": "papers", "icon": "📄"},
     {"name": "ScienceDaily AI", "url": "https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml", "category": "research", "icon": "🔬"},
     {"name": "Google DeepMind", "url": "https://deepmind.google/blog/rss.xml", "category": "research", "icon": "🧠"},
+    {"name": "HuggingFace Blog", "url": "https://huggingface.co/blog/feed.xml", "category": "research", "icon": "🤗"},
+    {"name": "MIT Tech Review", "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed", "category": "research", "icon": "🎓"},
     {"name": "Reddit AI", "url": "https://www.reddit.com/r/artificial/.rss", "category": "discussion", "icon": "💬"},
     {"name": "HN AI", "url": "https://hnrss.org/frontpage?q=AI+OR+machine+learning+OR+neural+OR+LLM+OR+GPT+OR+deep+learning+OR+transformer", "category": "discussion", "icon": "🔥"},
     {"name": "Two Minute Papers", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg", "category": "videos", "icon": "🎥", "is_youtube": True},
@@ -331,6 +335,17 @@ class PerpetualPulseEngine:
             log.error(f"❌ YouTube error: {e}")
             return None
 
+    def is_ai_relevant(self, title: str, content: str = '') -> bool:
+        """Filter for AI-related content (used on general tech feeds)."""
+        text = f"{title} {content}".lower()
+        keywords = [
+            'ai', 'artificial intelligence', 'machine learning', 'deep learning',
+            'neural', 'llm', 'gpt', 'chatbot', 'openai', 'anthropic', 'gemini',
+            'copilot', 'transformer', 'diffusion', 'model', 'agent', 'nvidia',
+            'gpu', 'robotics', 'computer vision', 'nlp', 'hugging face',
+        ]
+        return any(k in text for k in keywords)
+
     def process_entry(self, entry, source: dict) -> Optional[Dict]:
         try:
             title = entry.get('title', '').strip()
@@ -340,6 +355,9 @@ class PerpetualPulseEngine:
             if self.is_duplicate(link, title):
                 return None
             content_html = self.get_content_html(entry)
+            # AI relevance filter for general feeds
+            if source.get('ai_filter') and not self.is_ai_relevant(title, content_html):
+                return None
             clean_summary = self.clean_text(content_html, 250)
             published = entry.get('published_parsed') or entry.get('updated_parsed')
             ts = datetime.datetime(*published[:6]).isoformat() + 'Z' if published else datetime.datetime.utcnow().isoformat() + 'Z'
